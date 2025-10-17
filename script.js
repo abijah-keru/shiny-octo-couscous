@@ -366,14 +366,35 @@ function checkAndAutoAdvance() {
         // Auto-advance to next section if current is completed and not the last section
         if (sectionCompleted && currentSection < sections.length - 1) {
             setTimeout(() => {
-                currentSection++;
-                showSection(currentSection);
-                updateProgress();
-                updateNavButtons();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                fadeToNextSection();
             }, 500); // Small delay to show the green completion
         }
     }
+}
+
+function fadeToNextSection() {
+    const container = document.querySelector('.questionnaire-container');
+    
+    // Add fade-out class
+    container.classList.add('fade-out');
+    
+    // After fade-out completes, change section and fade back in
+    setTimeout(() => {
+        currentSection++;
+        showSection(currentSection);
+        updateProgress();
+        updateNavButtons();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Remove fade-out and add fade-in
+        container.classList.remove('fade-out');
+        container.classList.add('fade-in');
+        
+        // Remove fade-in class after animation completes
+        setTimeout(() => {
+            container.classList.remove('fade-in');
+        }, 500);
+    }, 500); // Wait for fade-out to complete
 }
 
 function autoScrollToNextQuestion() {
