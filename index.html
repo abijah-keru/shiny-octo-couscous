@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💃 Compatibility Dance</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen active">
+        <div class="container">
+            <div class="login-card">
+                <h1 class="logo">Compatibility Dance</h1>
+                <p class="subtitle">Multiple answers are allowed because life isn't always black or white, and neither are humans.</p>
+                <div class="panda-image">
+                    <img src="https://i.pinimg.com/736x/e9/e9/f6/e9e9f60050aa9df3238f0efa1dd95d6e.jpg" alt="Cute panda couple" class="panda-couple">
+                </div>
+                <form id="login-form" onsubmit="return false;">
+                    <div class="input-group">
+                        <input type="text" id="user-name" placeholder="What should I call you?" required>
+                    </div>
+                    <button type="button" class="btn-primary" id="submit-btn">Begin Dance</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roulette Animation Screen -->
+    <div id="roulette-screen" class="screen">
+        <div class="container">
+            <div class="roulette-container">
+                <div class="dance-container">
+                    <h2 class="dance-title">💃 Compatibility Dance 💃</h2>
+                    <p class="dance-subtitle">Let's find your perfect match!</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Questionnaire Screen -->
+    <div id="questionnaire-screen" class="screen">
+        <div class="container">
+            <div class="top-progress-bar">
+                <div class="progress-info">
+                    <span class="progress-percentage" id="progress-percentage">12%</span>
+                </div>
+            <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <nav class="section-nav">
+                <button class="nav-btn" data-section="life-stuff">Life Stuff</button>
+                <button class="nav-btn" data-section="values-beliefs">Values & Beliefs</button>
+                <button class="nav-btn" data-section="relationship-history">Relationship History</button>
+                <button class="nav-btn" data-section="personality-style">Personality & Style</button>
+                <button class="nav-btn" data-section="habits-selfcare">Habits & Self-Care</button>
+                <button class="nav-btn" data-section="lifestyle-vacation">Lifestyle & Vacation</button>
+                <button class="nav-btn" data-section="finances">Finances</button>
+                <button class="nav-btn" data-section="values-future">Values & Future</button>
+                <button class="nav-btn" data-section="social-energy">Social Energy</button>
+            </nav>
+
+            <div class="questionnaire-container">
+
+        <form id="questionnaire-form">
+                    <!-- Life Stuff Section -->
+                    <section class="question-section active" id="life-stuff">
+                        <div class="question-group">
+                            <h4>Addictions (Past or Present)</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="addictions" value="none"> None.</label>
+                                <label><input type="checkbox" name="addictions" value="worked-through"> Used to, but I worked through it.</label>
+                                <label><input type="checkbox" name="addictions" value="mild-habits"> Mild habits — caffeine, sugar, social media.</label>
+                                <label><input type="checkbox" name="addictions" value="still-in-it"> Still in it</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Chronic Illness (Self or Family)</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="chronic-illness" value="none"> None.</label>
+                                <label><input type="checkbox" name="chronic-illness" value="family-history"> Family history, but manageable.</label>
+                                <label><input type="checkbox" name="chronic-illness" value="have-one"> I have one, but it doesn't define me.</label>
+                                <label><input type="checkbox" name="chronic-illness" value="prefer-not-say"> Prefer not to say yet.</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Values & Beliefs Section -->
+                    <section class="question-section" id="values-beliefs">
+                        <div class="question-group">
+                            <h4>Religion & Spirituality</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="religion" value="deeply-religious"> Deeply religious — it's a cornerstone for me.</label>
+                                <label><input type="checkbox" name="religion" value="spiritual-not-religious"> Spiritual but not religious — I believe in energy, intention, vibes.</label>
+                                <label><input type="checkbox" name="religion" value="culturally-religious"> Culturally religious — I show up for the holidays.</label>
+                                <label><input type="checkbox" name="religion" value="not-religious"> Not religious at all</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Views on Gender & Equality</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="gender-equality" value="feminist"> Feminist — aware and intentional about equity.</label>
+                                <label><input type="checkbox" name="gender-equality" value="supportive"> Supportive — believe in equality but not an activist.</label>
+                                <label><input type="checkbox" name="gender-equality" value="neutral"> Neutral — live and let live.</label>
+                                <label><input type="checkbox" name="gender-equality" value="traditional"> Traditional — prefer defined roles.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Views on LGBTQIA+ Rights</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="lgbtq-rights" value="fully-supportive"> Fully supportive — love is love.</label>
+                                <label><input type="checkbox" name="lgbtq-rights" value="respectful"> Respectful, even if I don't fully understand.</label>
+                                <label><input type="checkbox" name="lgbtq-rights" value="prefer-not-engage"> Prefer not to engage — live your life.</label>
+                                <label><input type="checkbox" name="lgbtq-rights" value="not-supportive"> Not supportive — doesn't align with my beliefs.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Your Political Alignment</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="political-alignment" value="liberal"> Liberal / progressive</label>
+                                <label><input type="checkbox" name="political-alignment" value="moderate"> Moderate</label>
+                                <label><input type="checkbox" name="political-alignment" value="conservative"> Conservative — traditional and structured works for me.</label>
+                                <label><input type="checkbox" name="political-alignment" value="apolitical"> Apolitical — I avoid political drama.</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Relationship History Section -->
+                    <section class="question-section" id="relationship-history">
+                        <div class="question-group">
+                            <h4>Is there someone out there who thinks they're in a relationship with you?</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="current-relationship-status" value="fully-single"> Nope — fully single and available.</label>
+                                <label><input type="checkbox" name="current-relationship-status" value="casual-situationship"> Kind of — casual situations, situationship, but nothing serious.</label>
+                                <label><input type="checkbox" name="current-relationship-status" value="complicated"> Yes — someone's got feelings or expectations, complicated.</label>
+                                <label><input type="checkbox" name="current-relationship-status" value="messy"> It's messy — multiple people involved.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Cheating History</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="cheating-history" value="never"> Never — I value loyalty.</label>
+                                <label><input type="checkbox" name="cheating-history" value="once-learned"> Once — learned and grew from it.</label>
+                                <label><input type="checkbox" name="cheating-history" value="gray-area"> Gray area — emotional cheating or overlap.</label>
+                                <label><input type="checkbox" name="cheating-history" value="non-monogamous"> I don't believe monogamy is the only model.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Relationship Goals</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="relationship-goals" value="long-term"> Long-term, emotionally safe partnership.</label>
+                                <label><input type="checkbox" name="relationship-goals" value="open-to-serious"> Open to serious if it feels right.</label>
+                                <label><input type="checkbox" name="relationship-goals" value="casual"> Casual or exploratory.</label>
+                                <label><input type="checkbox" name="relationship-goals" value="unclear"> Unclear — still healing or figuring myself out.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Emotional Closure from Past Relationships</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="emotional-closure" value="fully-healed"> Fully healed — no lingering emotions.</label>
+                                <label><input type="checkbox" name="emotional-closure" value="mostly-at-peace"> Mostly at peace, but some memories still sting.</label>
+                                <label><input type="checkbox" name="emotional-closure" value="still-processing"> Still processing a past relationship.</label>
+                                <label><input type="checkbox" name="emotional-closure" value="unresolved"> Unresolved feelings — not entirely over an ex</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Personality & Relationship Style Section -->
+                    <section class="question-section" id="personality-style">
+                        <div class="question-group">
+                            <h4>Communication Style in Relationships</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="communication-style" value="constant-connection"> I love constant connection — texts, calls, updates throughout the day.</label>
+                                <label><input type="checkbox" name="communication-style" value="regular-checkins"> Regular check-ins — a few good convos a day feels right.</label>
+                                <label><input type="checkbox" name="communication-style" value="quality-over-quantity"> Quality over quantity — we can go hours without talking and I'm fine.</label>
+                                <label><input type="checkbox" name="communication-style" value="low-communication"> Low-communication comfort — I can go a whole day or two without chatting and not feel distant.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Conflict Style</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="conflict-style" value="calm-talk"> I calmly talk it out</label>
+                                <label><input type="checkbox" name="conflict-style" value="need-space"> I need space — cool down before words happen.</label>
+                                <label><input type="checkbox" name="conflict-style" value="avoid-confrontation"> I avoid confrontation until absolutely necessary.</label>
+                                <label><input type="checkbox" name="conflict-style" value="passive-aggressive"> Passive-aggressive vibes — silent treatment or side-eye.</label>
+                                <label><input type="checkbox" name="conflict-style" value="blow-up"> I blow up — dramatic, fiery, can't contain it.</label>
+                                <label><input type="checkbox" name="conflict-style" value="depends-mood"> Depends on mood — sometimes Zen, sometimes storm.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>When something is bothering you in a relationship</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="relationship-bothering" value="bring-up-immediately"> I bring it up immediately</label>
+                                <label><input type="checkbox" name="relationship-bothering" value="stew-quietly"> I stew quietly — process first, maybe mention later.</label>
+                                <label><input type="checkbox" name="relationship-bothering" value="drop-hints"> I drop hints, jokes, or passive-aggressive vibes — subtlety is an art.</label>
+                                <label><input type="checkbox" name="relationship-bothering" value="full-drama"> I go full drama.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Handling Being Wrong</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="handling-wrong" value="admit-right-away"> I admit it right away and make it right</label>
+                                <label><input type="checkbox" name="handling-wrong" value="understand-perspective"> I try to understand their perspective before responding.</label>
+                                <label><input type="checkbox" name="handling-wrong" value="defensive-then-soften"> I get defensive or make excuses at first, then soften.</label>
+                                <label><input type="checkbox" name="handling-wrong" value="never-admit"> I never admit I'm wrong. Ego says no, pride wins, consequences be damned.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>When You're Stressed or Overwhelmed</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="stress-response" value="need-space"> I need space — leave me alone to process.</label>
+                                <label><input type="checkbox" name="stress-response" value="talk-it-out"> I like to talk it out — share feelings and vent.</label>
+                                <label><input type="checkbox" name="stress-response" value="get-active"> I get active — go for a walk, workout, or get out of the house.</label>
+                                <label><input type="checkbox" name="stress-response" value="depends-mood"> Depends on mood — sometimes I want solitude, sometimes companionship</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Heartbreak Vibe</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="heartbreak-response" value="cry-it-out"> Cry it out — tissues, tears, the whole emotional parade.</label>
+                                <label><input type="checkbox" name="heartbreak-response" value="dive-into-music"> Dive into music — playlists, concerts, or sad songs on repeat.</label>
+                                <label><input type="checkbox" name="heartbreak-response" value="lash-out"> Lash out — drama, snapping, or venting to anyone who'll listen.</label>
+                                <label><input type="checkbox" name="heartbreak-response" value="reflect-quietly"> Reflect quietly — journals, walks, or solo contemplation.</label>
+                                <label><input type="checkbox" name="heartbreak-response" value="distract-yourself"> Distract yourself — binge shows, snacks, or random adventures.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>How You Show Love</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="love-language" value="physical-touch"> Physical touch: I'm big on hugs, kisses, hand-holding, all the cozy stuff.</label>
+                                <label><input type="checkbox" name="love-language" value="words-affirmation"> Words of affirmation: I hype you up, reassure you, and say how I feel often.</label>
+                                <label><input type="checkbox" name="love-language" value="acts-service"> Acts of service: I'll do things to make your day smoother (coffee, errands, fixing stuff).</label>
+                                <label><input type="checkbox" name="love-language" value="quality-time"> Quality time: I'll carve out time, plan dates, or just be fully present with you.</label>
+                                <label><input type="checkbox" name="love-language" value="gifts"> Gifts: I find or make little things that show I was thinking of you.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Chivalry & Gestures</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="chivalry" value="old-school-charm"> Old-school charm — I open doors, car doors, hold coats, help with luggage, pull out chairs, buy flowers.</label>
+                                <label><input type="checkbox" name="chivalry" value="occasional-thoughtfulness"> Occasional thoughtfulness. I do some gestures when it feels right.</label>
+                                <label><input type="checkbox" name="chivalry" value="casual"> Casual — small acts here and there</label>
+                                <label><input type="checkbox" name="chivalry" value="modern-partnership"> Modern partnership:, no special favors.</label>
+                                <label><input type="checkbox" name="chivalry" value="flexible"> Flexible if needed. not my usual style, but can adjust when required.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Sex & Intimacy</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="intimacy-frequency" value="everyday"> I'm in the mood, everyday</label>
+                                <label><input type="checkbox" name="intimacy-frequency" value="special-occasions"> Only on special occasions: birthdays, holidays, or when there's an eclipse.</label>
+                                <label><input type="checkbox" name="intimacy-frequency" value="every-other-day"> Every other day.</label>
+                                <label><input type="checkbox" name="intimacy-frequency" value="wait-marriage"> Wait until marriage; patience is a virtue.</label>
+                                <label><input type="checkbox" name="intimacy-frequency" value="depends-mood"> Depends on mood — sometimes yes, sometimes nope.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Independence in Relationships</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="independence" value="value-space"> Value space and separate interests.</label>
+                                <label><input type="checkbox" name="independence" value="blend-lives"> Blend lives but maintain individuality.</label>
+                                <label><input type="checkbox" name="independence" value="prefer-together"> Prefer to do most things together.</label>
+                                <label><input type="checkbox" name="independence" value="codependent"> Codependent tendencies — I admit it.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Your partner being friends with their exes</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="ex-friendships" value="trust-completely"> I trust them completely, past is past, friendships are fine.</label>
+                                <label><input type="checkbox" name="ex-friendships" value="mostly-okay"> Mostly okay, just a little boundary-setting, like "don't text at 2 a.m."</label>
+                                <label><input type="checkbox" name="ex-friendships" value="uneasy"> Uneasy, I'll need frequent reassurance</label>
+                                <label><input type="checkbox" name="ex-friendships" value="nope"> Nope!</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Privacy & Social Media</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="privacy" value="phone-access"> Partner can go through my phone. no problem.</label>
+                                <label><input type="checkbox" name="privacy" value="trust-but-phone-mine"> I trust but prefer my phone stays mine.</label>
+                                <label><input type="checkbox" name="privacy" value="sharing-passwords"> Sharing passwords? Sure, but only for emergencies.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>How involved do you expect your partner to be with your family?</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="family-involvement" value="join-all-dinners"> Join all family dinners, holidays, and weekend chaos</label>
+                                <label><input type="checkbox" name="family-involvement" value="special-occasions-only"> Show up for special occasions only — birthdays, holidays, maybe Sundays.</label>
+                                <label><input type="checkbox" name="family-involvement" value="minimal-contact"> Minimal contact — a polite hello here and there</label>
+                                <label><input type="checkbox" name="family-involvement" value="hands-off"> Hands-off —no need for partner participation.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>How would your family would react to you being with someone from a different race or culture?</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="intercultural-family" value="totally-chill"> Totally chill — they'd love them like extra family.</label>
+                                <label><input type="checkbox" name="intercultural-family" value="adjustments-needed"> Adjustments needed — some eyebrows raised, but manageable.</label>
+                                <label><input type="checkbox" name="intercultural-family" value="friction-alert"> Friction alert — tensions likely, drama possible.</label>
+                                <label><input type="checkbox" name="intercultural-family" value="hard-no"> Hard no — disownment or serious conflict imminent.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Gender Roles</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="gender-roles" value="fully-flexible"> Fully flexible. We share chores, errands, bills, cooking, laundry, and all the little annoying stuff.</label>
+                                <label><input type="checkbox" name="gender-roles" value="mostly-flexible"> Mostly flexible. I take on some tasks naturally, but let's divvy up the rest fairly.</label>
+                                <label><input type="checkbox" name="gender-roles" value="mix-preferences"> A mix. I stick to what I prefer (e.g., I cook, you handle groceries or car stuff).</label>
+                                <label><input type="checkbox" name="gender-roles" value="traditional-roles"> Traditional, clear roles: I do X, you do Y, and we rarely switch.</label>
+                                <label><input type="checkbox" name="gender-roles" value="adaptable"> Adaptable if required. I have my habits, but can step in if the other person needs help.</label>
+                                <label><input type="checkbox" name="gender-roles" value="expect-adaptation"> I expect the other person to adapt to me. I know my routines and preferences. You'll work around them.</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Habits & Self-Care Section -->
+                    <section class="question-section" id="habits-selfcare">
+                        <div class="question-group">
+                            <h4>Drinking Frequency & Style</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="drinking" value="dont-drink"> I don't drink — sober is my vibe.</label>
+                                <label><input type="checkbox" name="drinking" value="social-sips"> Social sips — weekends or special occasions only.</label>
+                                <label><input type="checkbox" name="drinking" value="regularly"> Regularly — a drink most days.</label>
+                                <label><input type="checkbox" name="drinking" value="binge-mode"> Binge mode — I sometimes party hard and may act a fool.</label>
+                                <label><input type="checkbox" name="drinking" value="depends-mood"> Depends on mood — sometimes light, sometimes "oops, one too many.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Your Fitness Attitude</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="fitness" value="train-regularly"> I train regularly and enjoy movement.</label>
+                                <label><input type="checkbox" name="fitness" value="naturally-active"> I'm naturally active but not obsessed.</label>
+                                <label><input type="checkbox" name="fitness" value="not-priority"> Fitness isn't a priority, maybe someday.</label>
+                                <label><input type="checkbox" name="fitness" value="walking-to-fridge"> My exercise is walking to the fridge.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Your Routine & Hygiene</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="hygiene" value="daily-showers"> Daily showers, skincare, fresh everything.</label>
+                                <label><input type="checkbox" name="hygiene" value="clean-consistent"> Clean and consistent, not obsessive.</label>
+                                <label><input type="checkbox" name="hygiene" value="sometimes-skip"> Sometimes skip a day — depends on mood.</label>
+                                <label><input type="checkbox" name="hygiene" value="vibes-based"> My hygiene system is "vibes-based."</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>How Organized Are You?</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="organization" value="neat-tidy"> I'm neat and tidy — everything has its place, consistently.</label>
+                                <label><input type="checkbox" name="organization" value="mostly-organized"> Mostly organized — minor clutter happens but I manage.</label>
+                                <label><input type="checkbox" name="organization" value="depends-mood"> Depends on my mood or mental state — sometimes chaos, sometimes order.</label>
+                                <label><input type="checkbox" name="organization" value="thrive-chaos"> I thrive in chaos — mess is my natural habitat.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Your General Grooming & Style</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="grooming" value="always-neat"> Always neat — shoes clean, hair brushed, nails on point.</label>
+                                <label><input type="checkbox" name="grooming" value="effort-shows"> Effort shows, but relaxed about it.</label>
+                                <label><input type="checkbox" name="grooming" value="minimal-grooming"> Minimal grooming — I exist, and that's enough.</label>
+                                <label><input type="checkbox" name="grooming" value="function-over-fashion"> Function over fashion — I'm here to live, not impress.</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Lifestyle & Vacation Section -->
+                    <section class="question-section" id="lifestyle-vacation">
+                        <div class="question-group">
+                            <h4>Vacation Style</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="vacation-style" value="luxe-traveler"> Luxe traveler — fancy hotels, soft robes, cocktails.</label>
+                                <label><input type="checkbox" name="vacation-style" value="mid-budget"> Mid-budget planner — comfort with good deals.</label>
+                                <label><input type="checkbox" name="vacation-style" value="backpacker"> Backpacker vibes — hostels, spontaneity, people-watching.</label>
+                                <label><input type="checkbox" name="vacation-style" value="homebody"> Homebody — my bed is my favorite destination.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Itinerary Type</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="itinerary" value="fully-planned"> Fully planned with color-coded schedules.</label>
+                                <label><input type="checkbox" name="itinerary" value="general-plan"> General plan, flexible in the moment.</label>
+                                <label><input type="checkbox" name="itinerary" value="spontaneous"> Spontaneous — I'll figure it out there.</label>
+                                <label><input type="checkbox" name="itinerary" value="no-plan"> No plan — I just follow the food.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Accommodation Preference</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="accommodation" value="hotel"> Hotel — clean sheets and service, please.</label>
+                                <label><input type="checkbox" name="accommodation" value="airbnb"> Airbnb — cozy, local, feels like living there.</label>
+                                <label><input type="checkbox" name="accommodation" value="cheap-safe"> Anywhere cheap and safe.</label>
+                                <label><input type="checkbox" name="accommodation" value="sleep-wherever"> I'll sleep wherever — I'm adaptable.</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Finances Section -->
+                    <section class="question-section" id="finances">
+                        <div class="question-group">
+                            <h4>Financial Responsibility</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="financial-responsibility" value="budgeting-pro"> Budgeting pro — every shilling accounted for.</label>
+                                <label><input type="checkbox" name="financial-responsibility" value="generally-responsible"> Generally responsible — occasional splurge.</label>
+                                <label><input type="checkbox" name="financial-responsibility" value="impulsive-spender"> Impulsive spender — it'll sort itself out.</label>
+                                <label><input type="checkbox" name="financial-responsibility" value="financial-chaos"> Financial chaos artist.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Spending Philosophy</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="spending-philosophy" value="saver"> Saver — I like security and long-term planning.</label>
+                                <label><input type="checkbox" name="spending-philosophy" value="balanced"> Balanced — I save, but life's meant to be enjoyed.</label>
+                                <label><input type="checkbox" name="spending-philosophy" value="experience-spender"> Experience spender — memories &gt; money.</label>
+                                <label><input type="checkbox" name="spending-philosophy" value="living-moment"> Living in the moment (and maybe the overdraft).</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Paying for Dates</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="paying-dates" value="prefer-pay"> I prefer to pay — a touch of old-school chivalry.</label>
+                                <label><input type="checkbox" name="paying-dates" value="cover-main"> I cover the main stuff, you handle the little things — parking, dessert, the fun extras.</label>
+                                <label><input type="checkbox" name="paying-dates" value="split-evenly"> Split evenly — fair and simple.</label>
+                                <label><input type="checkbox" name="paying-dates" value="alternate"> Alternate — we take turns.</label>
+                                <label><input type="checkbox" name="paying-dates" value="each-pay-own"> We each pay our own way — no tabs.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Shared Living Expenses</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="living-expenses" value="fifty-fifty"> 50–50 split always — fair and square.</label>
+                                <label><input type="checkbox" name="living-expenses" value="proportional-income"> Proportional to income — I cover what I can, you cover what you can.</label>
+                                <label><input type="checkbox" name="living-expenses" value="big-stuff-small-stuff"> I handle the big stuff, you take care of the small stuff - internet bills, water, electricity.</label>
+                                <label><input type="checkbox" name="living-expenses" value="whoever-feels-like"> Whoever feels like paying that month, we'll figure it out</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Vacation Expenses</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="vacation-expenses" value="split-everything"> Split everything evenly — no debates over the minibar.</label>
+                                <label><input type="checkbox" name="vacation-expenses" value="cover-big-stuff"> I cover all the big stuff (flights, accommodation) — you handle small stuff (taxis, snacks, local treats).</label>
+                                <label><input type="checkbox" name="vacation-expenses" value="flights-food"> I pay for flights and food — you take care of accommodation and transport.</label>
+                                <label><input type="checkbox" name="vacation-expenses" value="alternate-cover"> Alternate who covers what — keeps the adventure fair.</label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Values & Future Section -->
+                    <section class="question-section" id="values-future">
+                        <div class="question-group">
+                            <h4>Desire for Children</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="desire-children" value="definitely-want"> Definitely want children.</label>
+                                <label><input type="checkbox" name="desire-children" value="open-depends"> Open, depends on the person and timing.</label>
+                                <label><input type="checkbox" name="desire-children" value="unsure"> Unsure — not a current focus.</label>
+                                <label><input type="checkbox" name="desire-children" value="prefer-not"> Prefer not to have children.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Views on Reproductive Rights</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="reproductive-rights" value="fully-pro-choice"> Fully pro-choice — bodily autonomy is non-negotiable.</label>
+                                <label><input type="checkbox" name="reproductive-rights" value="mostly-pro-choice"> Mostly pro-choice — with some personal reservations.</label>
+                                <label><input type="checkbox" name="reproductive-rights" value="pro-life"> Pro-life — I believe life begins at conception.</label>
+                                <label><input type="checkbox" name="reproductive-rights" value="undecided"> Undecided — still thinking it through, open to conversation.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Timeline for Settling Down</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="settling-down" value="ready-soon"> Ready soon — marriage/family is near.</label>
+                                <label><input type="checkbox" name="settling-down" value="open-to-serious"> Open to serious, not rushing.</label>
+                                <label><input type="checkbox" name="settling-down" value="companionship-growth"> Focused on companionship and growth.</label>
+                                <label><input type="checkbox" name="settling-down" value="avoiding-pressure"> Avoiding pressure — life unfolds as it will.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Career Drive</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="career-drive" value="ambitious"> Ambitious — I'm climbing and I love it.</label>
+                                <label><input type="checkbox" name="career-drive" value="career-focused-balance"> Career-focused but balance matters.</label>
+                                <label><input type="checkbox" name="career-drive" value="work-stability"> Work for stability, not for glory.</label>
+                                <label><input type="checkbox" name="career-drive" value="floating"> Floating — not sure where I'm headed yet.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Therapy & Self-Reflection</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="therapy" value="currently-previously"> Currently or previously in therapy.</label>
+                                <label><input type="checkbox" name="therapy" value="open-to-therapy"> Open to therapy if needed.</label>
+                                <label><input type="checkbox" name="therapy" value="self-reflective"> Self-reflective without formal therapy.</label>
+                                <label><input type="checkbox" name="therapy" value="not-into-therapy"> Not into therapy — not my thing.</label>
+                            </div>
+                </div>
+
+                        <div class="question-group">
+                            <h4>Ideal Life Alignment</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="life-alignment" value="living-dream"> Living my dream life now.</label>
+                                <label><input type="checkbox" name="life-alignment" value="on-path"> On the path, slowly building.</label>
+                                <label><input type="checkbox" name="life-alignment" value="know-want-stalled"> Know what I want, but stalled.</label>
+                                <label><input type="checkbox" name="life-alignment" value="still-figuring"> Still figuring it out — stay tuned.</label>
+                            </div>
+                </div>
+            </section>
+
+                    <!-- Social Energy & Habits Section -->
+                    <section class="question-section" id="social-energy">
+                        <div class="question-group">
+                            <h4>Hobbies & How You Spend Free Time</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="hobbies" value="homebody"> I'm a homebody — binge shows, scroll socials, chill.</label>
+                                <label><input type="checkbox" name="hobbies" value="casual-fun"> I like casual fun — bowling, mini-golf, local outings.</label>
+                                <label><input type="checkbox" name="hobbies" value="active-adventurous"> I'm active & adventurous — hiking, sports, spontaneous trips.</label>
+                                <label><input type="checkbox" name="hobbies" value="mix"> I enjoy a mix — sometimes relaxing at home, sometimes being out and about, exploring or trying new experiences.</label>
+                            </div>
+                        </div>
+
+                        <div class="question-group">
+                            <h4>Music Vibes</h4>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="music" value="obsessed"> I'm obsessed — can't live without it;</label>
+                                <label><input type="checkbox" name="music" value="love-it"> I love it — listen often, go to concerts, discover new stuff. Here's my playlist [share link].</label>
+                                <label><input type="checkbox" name="music" value="casual-listener"> Casual listener — tunes on sometimes, mostly background.</label>
+                                <label><input type="checkbox" name="music" value="not-really-into"> Not really into music — silence is golden (or podcasts).</label>
+                            </div>
+                        </div>
+                    </section>
+                </form>
+
+                <div class="navigation-controls">
+                    <button id="prev-section" class="btn-secondary" disabled>Previous</button>
+                    <button id="next-section" class="btn-primary">Next</button>
+                    <button id="submit-questionnaire" class="btn-submit" style="display: none;">Complete the Roulette</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="screen">
+        <div class="container">
+            <div class="results-card">
+                <h2>🌹 Your Compatibility Profile</h2>
+                <p>Thank you for completing the Compatibility Roulette, <span id="results-user-name"></span>!</p>
+                <div id="results-content">
+                    <!-- Results will be populated here -->
+                </div>
+                <button id="restart-btn" class="btn-primary">Start Over</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
