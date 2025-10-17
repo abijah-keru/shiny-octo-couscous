@@ -9,7 +9,6 @@ const sections = [
     'personality-style',
     'habits-selfcare',
     'lifestyle-vacation',
-    'finances',
     'values-future',
     'social-energy'
 ];
@@ -74,18 +73,15 @@ function handleLogin() {
         // Store user name
         localStorage.setItem('compatibilityUserName', userName);
         
-        console.log('Showing roulette animation');
-        // Show roulette animation screen
-        showScreen('roulette-screen');
+        console.log('Showing Let\'s Dance screen');
+        // Show Let's Dance screen first
+        showScreen('lets-dance-screen');
         
-        // Simple delay before transitioning to questionnaire
-        setTimeout(() => {
-            // No animation needed - just wait
-        }, 2000);
+        // Username display removed - no longer needed
         
-        // After 5 seconds, transition to questionnaire
+        // After 1 second, go to questionnaire
         setTimeout(() => {
-            console.log('Transitioning to questionnaire');
+            console.log('Starting questionnaire');
             showScreen('questionnaire-screen');
             
             // Initialize questionnaire state
@@ -93,7 +89,7 @@ function handleLogin() {
             showSection(0);
             updateProgress();
             updateNavButtons();
-        }, 5000);
+        }, 2000);
     } else {
         console.log('No user name provided');
         alert('Please enter your name to continue.');
@@ -159,8 +155,8 @@ function setupNavigation() {
     // Submit button
     submitBtn.addEventListener('click', function() {
         if (validateAllQuestions()) {
-            collectFormData();
-            showResults();
+        collectFormData();
+        showResults();
         } else {
             showIncompleteError();
         }
@@ -227,6 +223,13 @@ function updateProgress() {
     
     progressFill.style.width = `${progress}%`;
     progressPercentage.textContent = `${Math.round(progress)}%`;
+    
+    // Automatically transition to thank you page when 100% complete
+    if (Math.round(progress) === 100) {
+        setTimeout(() => {
+            showResults();
+        }, 1000); // 1 second delay to show the 100% completion
+    }
 }
 
 function countTotalQuestions() {
@@ -298,7 +301,7 @@ function showIncompleteError() {
     errorMessage.innerHTML = `
         <div class="error-content">
             <h3>Oops! You skipped some questions</h3>
-            <p>Please complete all sections before submitting.</p>
+            <p>Please complete all sections before submitting. Completed sections are marked in green.</p>
             <button class="btn-primary" onclick="this.parentElement.parentElement.remove()">Got it!</button>
         </div>
     `;
@@ -339,6 +342,70 @@ function updateSectionCompletion() {
             }
         }
     });
+    
+    // Check if current section is completed and auto-advance
+    checkAndAutoAdvance();
+}
+
+function checkAndAutoAdvance() {
+    const currentSectionElement = document.getElementById(sections[currentSection]);
+    if (currentSectionElement) {
+        const questionGroups = currentSectionElement.querySelectorAll('.question-group');
+        let sectionCompleted = true;
+        
+        questionGroups.forEach(group => {
+            const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+            const name = checkboxes[0]?.name;
+            const hasAnswer = name && formData[name] && formData[name].length > 0;
+            
+            if (!hasAnswer) {
+                sectionCompleted = false;
+            }
+        });
+        
+        // Auto-advance to next section if current is completed and not the last section
+        if (sectionCompleted && currentSection < sections.length - 1) {
+            setTimeout(() => {
+                currentSection++;
+                showSection(currentSection);
+                updateProgress();
+                updateNavButtons();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }, 500); // Small delay to show the green completion
+        }
+    }
+}
+
+function autoScrollToNextQuestion() {
+    const currentSectionElement = document.getElementById(sections[currentSection]);
+    if (currentSectionElement) {
+        const questionGroups = currentSectionElement.querySelectorAll('.question-group');
+        let nextUnansweredQuestion = null;
+        
+        // Find the next unanswered question
+        for (let i = 0; i < questionGroups.length; i++) {
+            const group = questionGroups[i];
+            const checkboxes = group.querySelectorAll('input[type="checkbox"]');
+            const name = checkboxes[0]?.name;
+            const hasAnswer = name && formData[name] && formData[name].length > 0;
+            
+            if (!hasAnswer) {
+                nextUnansweredQuestion = group;
+                break;
+            }
+        }
+        
+        // If there's a next unanswered question, scroll to it
+        if (nextUnansweredQuestion) {
+            setTimeout(() => {
+                nextUnansweredQuestion.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'nearest',
+                    inline: 'nearest'
+                });
+            }, 300); // Small delay to allow the checkbox selection to register
+        }
+    }
 }
 
 function updateNavButtons() {
@@ -369,6 +436,9 @@ function setupFormHandling() {
         saveFormData();
         updateProgress(); // Update progress when form changes
         updateSectionCompletion(); // Update section completion status
+        
+        // Auto-scroll to next question when answer is selected
+        autoScrollToNextQuestion();
     });
     
     // Load saved data if exists

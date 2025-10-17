@@ -27,22 +27,19 @@
         </div>
     </div>
 
-    <!-- Roulette Animation Screen -->
-    <div id="roulette-screen" class="screen">
+    <!-- Let's Dance Screen -->
+    <div id="lets-dance-screen" class="screen">
         <div class="container">
-            <div class="roulette-container">
-                <div class="dance-container">
-                    <h2 class="dance-title">💃 Compatibility Dance 💃</h2>
-                    <p class="dance-subtitle">Let's find your perfect match!</p>
+            <div class="dance-intro-container">
+                <div class="dancing-gif-container">
+                    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnF4eWdvNHU5Y3NmNHNqMW8xZzdiaHZydXdvaXozYzBvYmt0M3A3cyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VwrVw4Pty2RP70tvy5/giphy.gif" alt="Dancing couple" class="dancing-gif">
                 </div>
-                
             </div>
         </div>
     </div>
 
     <!-- Questionnaire Screen -->
     <div id="questionnaire-screen" class="screen">
-        <div class="container">
             <div class="top-progress-bar">
                 <div class="progress-info">
                     <span class="progress-percentage" id="progress-percentage">12%</span>
@@ -52,19 +49,19 @@
                 </div>
             </div>
 
-            <nav class="section-nav">
-                <button class="nav-btn" data-section="life-stuff">Life Stuff</button>
-                <button class="nav-btn" data-section="values-beliefs">Values & Beliefs</button>
-                <button class="nav-btn" data-section="relationship-history">Relationship History</button>
-                <button class="nav-btn" data-section="personality-style">Personality & Style</button>
-                <button class="nav-btn" data-section="habits-selfcare">Habits & Self-Care</button>
-                <button class="nav-btn" data-section="lifestyle-vacation">Lifestyle & Vacation</button>
-                <button class="nav-btn" data-section="finances">Finances</button>
-                <button class="nav-btn" data-section="values-future">Values & Future</button>
-                <button class="nav-btn" data-section="social-energy">Social Energy</button>
-            </nav>
+        <div class="questionnaire-layout">
+            <nav class="section-nav sidebar">
+                    <button class="nav-btn" data-section="life-stuff">Life Stuff</button>
+                    <button class="nav-btn" data-section="values-beliefs">Values & Beliefs</button>
+                    <button class="nav-btn" data-section="relationship-history">Relationship History</button>
+                    <button class="nav-btn" data-section="personality-style">Personality & Style</button>
+                    <button class="nav-btn" data-section="habits-selfcare">Habits & Self-Care</button>
+                    <button class="nav-btn" data-section="lifestyle-vacation">Lifestyle & Vacation</button>
+                    <button class="nav-btn" data-section="values-future">Values & Future</button>
+                    <button class="nav-btn" data-section="social-energy">Social Energy</button>
+                </nav>
 
-            <div class="questionnaire-container">
+            <div class="questionnaire-container main-content">
 
         <form id="questionnaire-form">
                     <!-- Life Stuff Section -->
@@ -568,6 +565,7 @@
                     <button id="prev-section" class="btn-secondary" disabled>Previous</button>
                     <button id="next-section" class="btn-primary">Next</button>
                     <button id="submit-questionnaire" class="btn-submit" style="display: none;">Complete the Roulette</button>
+                </div>
                 </div>
             </div>
         </div>
