@@ -7,6 +7,7 @@ const sections = [
     'values-beliefs', 
     'relationship-history',
     'personality-style',
+    'chemistry-check',
     'habits-selfcare',
     'lifestyle-vacation',
     'values-future',
@@ -323,11 +324,25 @@ function updateSectionCompletion() {
             let sectionCompleted = true;
             
             questionGroups.forEach(group => {
+                // Check for checkboxes
                 const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-                const name = checkboxes[0]?.name;
-                const hasAnswer = name && formData[name] && formData[name].length > 0;
+                const textInputs = group.querySelectorAll('input[type="text"]');
                 
-                if (!hasAnswer) {
+                // Check if any checkboxes have answers
+                let hasCheckboxAnswer = false;
+                if (checkboxes.length > 0) {
+                    const name = checkboxes[0]?.name;
+                    hasCheckboxAnswer = name && formData[name] && formData[name].length > 0;
+                }
+                
+                // Check if any text inputs have answers
+                let hasTextAnswer = false;
+                if (textInputs.length > 0) {
+                    hasTextAnswer = Array.from(textInputs).some(input => input.value.trim() !== '');
+                }
+                
+                // If there are form elements but no answers, section is incomplete
+                if ((checkboxes.length > 0 || textInputs.length > 0) && !hasCheckboxAnswer && !hasTextAnswer) {
                     sectionCompleted = false;
                 }
             });
@@ -354,11 +369,25 @@ function checkAndAutoAdvance() {
         let sectionCompleted = true;
         
         questionGroups.forEach(group => {
+            // Check for checkboxes
             const checkboxes = group.querySelectorAll('input[type="checkbox"]');
-            const name = checkboxes[0]?.name;
-            const hasAnswer = name && formData[name] && formData[name].length > 0;
+            const textInputs = group.querySelectorAll('input[type="text"]');
             
-            if (!hasAnswer) {
+            // Check if any checkboxes have answers
+            let hasCheckboxAnswer = false;
+            if (checkboxes.length > 0) {
+                const name = checkboxes[0]?.name;
+                hasCheckboxAnswer = name && formData[name] && formData[name].length > 0;
+            }
+            
+            // Check if any text inputs have answers
+            let hasTextAnswer = false;
+            if (textInputs.length > 0) {
+                hasTextAnswer = Array.from(textInputs).some(input => input.value.trim() !== '');
+            }
+            
+            // If there are form elements but no answers, section is incomplete
+            if ((checkboxes.length > 0 || textInputs.length > 0) && !hasCheckboxAnswer && !hasTextAnswer) {
                 sectionCompleted = false;
             }
         });
